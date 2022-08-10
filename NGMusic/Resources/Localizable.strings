@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  NGMusic
+
+  Created by Deepak on 02/08/22.
+  
+*/
+
+"ITUNES" = "";
+"TITLE_HOME" = " iTunes";
+"SUBTITLE" = "Search for a veriety of content from the iTunes Store : including iBooks, Movies, Podcasts, Music, Music Videos and Audiobooks";
+"SEARCH_PLACEHOLDER" = "Search";
+"SEARCH" = "Search";
+"SELECT_CATEGORIES" = "Select media types";
+"SOMETHING_WRONG" = "Something want wrong!";
+"INVALID_SEARCH_KEYWORD" = "Please enter something to search";
+"INVALID_SEARCH_ENTITY" = "Please select media type to search";
+
+
+

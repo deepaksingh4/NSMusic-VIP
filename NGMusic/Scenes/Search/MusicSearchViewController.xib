@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MusicSearchViewController" customModule="NGMusic" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="3No-Tn-N6K" id="tzC-As-BcA"/>
+                <outlet property="searchTextField" destination="vdb-S4-HpY" id="sW5-wM-PI9"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Y9C-nF-chL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASO-l3-cNd" userLabel="title">
+                    <rect key="frame" x="183.5" y="84" width="47" height="21.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="TITLE_HOME"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEz-id-XgK" userLabel="Subtitle">
+                    <rect key="frame" x="16" y="145.5" width="382" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="SUBTITLE"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vdb-S4-HpY">
+                    <rect key="frame" x="16" y="203.5" width="382" height="34"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="SEARCH_PLACEHOLDER"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SyD-Cp-ZsD" customClass="CircularBtton" customModule="NGMusic" customModuleProvider="target">
+                    <rect key="frame" x="50" y="791" width="314" height="31"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button">
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="SEARCH"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="searchWithSender:" destination="-1" eventType="touchUpInside" id="0lQ-4K-aeZ"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLL-gy-NGs" userLabel="media">
+                    <rect key="frame" x="16" y="277.5" width="382" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="SELECT_CATEGORIES"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kFC-hi-0jY">
+                    <rect key="frame" x="16" y="315.5" width="382" height="80"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="16E-bx-wZJ">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="37.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rr6-cZ-nYI" customClass="CircularBtton" customModule="NGMusic" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="93.5" height="37.5"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Album">
+                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="selectCategoryWithSender:" destination="-1" eventType="touchUpInside" id="Xrx-I8-Cyy"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSA-tk-tXu" customClass="CircularBtton" customModule="NGMusic" customModuleProvider="target">
+                                    <rect key="frame" x="98.5" y="0.0" width="80" height="37.5"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Artist">
+                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="selectCategoryWithSender:" destination="-1" eventType="touchUpInside" id="B1O-8p-ncG"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkF-Gz-77n" customClass="CircularBtton" customModule="NGMusic" customModuleProvider="target">
+                                    <rect key="frame" x="183.5" y="0.0" width="80.5" height="37.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Book">
+                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="selectCategoryWithSender:" destination="-1" eventType="touchUpInside" id="25Y-Qb-YqJ"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2sK-dn-d6a" customClass="CircularBtton" customModule="NGMusic" customModuleProvider="target">
+                                    <rect key="frame" x="269" y="0.0" width="113" height="37.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Movie">
+                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="selectCategoryWithSender:" destination="-1" eventType="touchUpInside" id="HxZ-IK-I9F"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9VQ-ge-3Vc">
+                            <rect key="frame" x="0.0" y="42.5" width="382" height="37.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Xi-15-xTg" customClass="CircularBtton" customModule="NGMusic" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="167" height="37.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Music Video">
+                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="selectCategoryWithSender:" destination="-1" eventType="touchUpInside" id="VgE-NK-TML"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhw-AR-MSW" customClass="CircularBtton" customModule="NGMusic" customModuleProvider="target">
+                                    <rect key="frame" x="172" y="0.0" width="114" height="37.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Podcast">
+                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="selectCategoryWithSender:" destination="-1" eventType="touchUpInside" id="5Ow-pb-ib2"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vQ-qc-3Ga" customClass="CircularBtton" customModule="NGMusic" customModuleProvider="target">
+                                    <rect key="frame" x="291" y="0.0" width="91" height="37.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Song">
+                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="selectCategoryWithSender:" destination="-1" eventType="touchUpInside" id="oCD-hm-8a7"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="Noc-tN-3mS"/>
+                    </constraints>
+                </stackView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="3No-Tn-N6K">
+                    <rect key="frame" x="0.0" y="5" width="414" height="896"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="color" systemColor="systemIndigoColor"/>
+                </activityIndicatorView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="kFC-hi-0jY" firstAttribute="trailing" secondItem="YLL-gy-NGs" secondAttribute="trailing" id="5Im-Jg-aPS"/>
+                <constraint firstItem="3No-Tn-N6K" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="6gn-1f-fig"/>
+                <constraint firstItem="oEz-id-XgK" firstAttribute="top" secondItem="ASO-l3-cNd" secondAttribute="bottom" constant="40" id="7jg-Jp-80N"/>
+                <constraint firstItem="3No-Tn-N6K" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="9mG-l5-T2g"/>
+                <constraint firstItem="vdb-S4-HpY" firstAttribute="trailing" secondItem="oEz-id-XgK" secondAttribute="trailing" id="AMW-2l-aU5"/>
+                <constraint firstItem="ASO-l3-cNd" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Aiu-R4-TpF"/>
+                <constraint firstItem="3No-Tn-N6K" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="D6J-IS-SNd"/>
+                <constraint firstItem="kFC-hi-0jY" firstAttribute="leading" secondItem="YLL-gy-NGs" secondAttribute="leading" id="Gbr-hL-HDx"/>
+                <constraint firstItem="vdb-S4-HpY" firstAttribute="leading" secondItem="oEz-id-XgK" secondAttribute="leading" id="MMS-Fp-OHj"/>
+                <constraint firstItem="SyD-Cp-ZsD" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Pgo-n8-FcA"/>
+                <constraint firstItem="oEz-id-XgK" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Sal-y7-DwT"/>
+                <constraint firstItem="ASO-l3-cNd" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="Wco-JU-rFw"/>
+                <constraint firstItem="YLL-gy-NGs" firstAttribute="leading" secondItem="vdb-S4-HpY" secondAttribute="leading" id="Wud-S9-ilA"/>
+                <constraint firstItem="oEz-id-XgK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="azv-z5-l4B"/>
+                <constraint firstItem="vdb-S4-HpY" firstAttribute="top" secondItem="oEz-id-XgK" secondAttribute="bottom" constant="40" id="byZ-lh-Fca"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="SyD-Cp-ZsD" secondAttribute="bottom" constant="40" id="dRx-rK-DFs"/>
+                <constraint firstItem="3No-Tn-N6K" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="gMx-g5-rJh"/>
+                <constraint firstItem="SyD-Cp-ZsD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="jer-f1-bhl"/>
+                <constraint firstItem="YLL-gy-NGs" firstAttribute="trailing" secondItem="vdb-S4-HpY" secondAttribute="trailing" id="jv9-np-E71"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="SyD-Cp-ZsD" secondAttribute="trailing" constant="50" id="l0e-zz-VhX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oEz-id-XgK" secondAttribute="trailing" constant="16" id="pJO-w3-S6W"/>
+                <constraint firstItem="YLL-gy-NGs" firstAttribute="top" secondItem="vdb-S4-HpY" secondAttribute="bottom" constant="40" id="rCM-8V-1RS"/>
+                <constraint firstItem="kFC-hi-0jY" firstAttribute="top" secondItem="YLL-gy-NGs" secondAttribute="bottom" constant="20" id="tfX-6A-Ogx"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="129.91071428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

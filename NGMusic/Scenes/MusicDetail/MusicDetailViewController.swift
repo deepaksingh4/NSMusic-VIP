@@ -14,14 +14,36 @@ import AVKit
 import UIKit
 
 protocol MusicDetailDisplayLogic: AnyObject {
-    func displayInfo(viewModel: MusicResponseModel)
+    func displayInfo(viewModel: MusicDetail.LoadResultDetails.ViewModel)
 }
 
 class MusicDetailViewController: UIViewController, MusicDetailDisplayLogic {
+    func displayInfo(viewModel: MusicDetail.LoadResultDetails.ViewModel) {
+        self.viewModel = viewModel
+
+        musicTitle.text = viewModel.title
+        imageView.loadImageUsingUrlString(url: viewModel.image, placeHolderImage: nil)
+        if viewModel.mediaURL != nil {
+            playButton.isHidden = false
+        } else {
+            playButton.isHidden = true
+        }
+
+        if viewModel.link != nil {
+            guard let navController = self.navigationController as? NGNavigationViewController else {
+                return
+            }
+            navController.addBarButtonItem(barButtonType: .search(callBack: UIAction(handler: {[weak self] _ in
+                self?.openBrowser()
+            })), position: .right)
+        }
+
+    }
+
     var interactor: MusicDetailBusinessLogic?
     var router: (NSObjectProtocol & MusicDetailRoutingLogic & MusicDetailDataPassing)?
 
-    private var data: MusicResponseModel?
+    private var viewModel: MusicDetail.LoadResultDetails.ViewModel?
 
     // MARK: Object lifecycle
 
@@ -62,7 +84,7 @@ class MusicDetailViewController: UIViewController, MusicDetailDisplayLogic {
     @IBOutlet weak var playButton: CircularBtton!
 
     @IBAction func play(_ sender: CircularBtton) {
-        if let videoURL = data?.previewUrl {
+        if let videoURL = viewModel?.mediaURL {
             let player = AVPlayer(url: videoURL)
             let playerViewController = AVPlayerViewController()
             playerViewController.player = player
@@ -75,28 +97,9 @@ class MusicDetailViewController: UIViewController, MusicDetailDisplayLogic {
     func setupUI() {
         interactor?.updateDetail()
     }
-    func displayInfo(viewModel: MusicResponseModel) {
-        data = viewModel
-        musicTitle.text = viewModel.trackName ?? viewModel.collectionName
-        imageView.loadImageUsingUrlString(url: viewModel.artworkUrl100, placeHolderImage: nil)
-        if viewModel.previewUrl != nil {
-            playButton.isHidden = false
-        } else {
-            playButton.isHidden = true
-        }
-
-        if viewModel.collectionViewUrl != nil {
-            guard let navController = self.navigationController as? NGNavigationViewController else {
-                return
-            }
-            navController.addBarButtonItem(barButtonType: .search(callBack: UIAction(handler: {[weak self] _ in
-                self?.openBrowser()
-            })), position: .right)
-        }
-    }
 
     @objc private func openBrowser() {
-        if let collectionViewUrl = data?.collectionViewUrl {
+        if let collectionViewUrl = viewModel?.link {
             if UIApplication.shared.canOpenURL(collectionViewUrl) {
                 UIApplication.shared.open(collectionViewUrl, completionHandler: nil)
             }

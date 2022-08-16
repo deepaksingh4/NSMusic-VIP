@@ -13,14 +13,13 @@
 import UIKit
 
 enum MusicDetail {
-    enum loadResultDetails{
-        struct Request{}
-        struct Response{}
-        struct ViewModel{
-            var image: UIImage
+    enum LoadResultDetails {
+        struct Request {}
+        struct Response {}
+        struct ViewModel {
+            var image: URL?
             var title: String
-            var shouldShowPlay: Bool
-            var mediaURL: URL
+            var mediaURL: URL?
             var link: URL?
         }
     }

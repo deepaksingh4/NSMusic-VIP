@@ -16,6 +16,18 @@ class MusicDetailPresenter: MusicDetailPresentationLogic {
   // MARK: Do something
 
     func present(item: MusicResponseModel) {
-        self.viewController?.displayInfo(viewModel: item)
+
+        let vm = prepareViewModel(from: item)
+        self.viewController?.displayInfo(viewModel: vm)
+    }
+
+    func prepareViewModel(from musicModel: MusicResponseModel) -> MusicDetail.LoadResultDetails.ViewModel {
+        let vm = MusicDetail.LoadResultDetails.ViewModel(
+            image: musicModel.artworkUrl100,
+            title: musicModel.trackName ?? musicModel.collectionName ?? "",
+            mediaURL: musicModel.previewUrl,
+            link: musicModel.collectionViewUrl
+        )
+        return vm
     }
 }

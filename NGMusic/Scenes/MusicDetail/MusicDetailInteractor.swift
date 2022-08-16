@@ -21,4 +21,5 @@ class MusicDetailInteractor: MusicDetailBusinessLogic, MusicDetailDataStore {
     func updateDetail() {
         presenter?.present(item: musicModel)
     }
+
 }

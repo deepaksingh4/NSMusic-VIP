@@ -31,12 +31,12 @@
 
   // MARK: Test doubles
 
-  class MusicDetailDisplayLogicSpy: MusicDetailDisplayLogic {
-    var displaySomethingCalled = false
+     class MusicDetailDisplayLogicSpy: MusicDetailDisplayLogic {
+         func displayInfo(viewModel: MusicDetail.LoadResultDetails.ViewModel) {
+             displaySomethingCalled = true
+         }
 
-    func displayInfo(viewModel: MusicResponseModel) {
-      displaySomethingCalled = true
-    }
+    var displaySomethingCalled = false
   }
 
   // MARK: Tests

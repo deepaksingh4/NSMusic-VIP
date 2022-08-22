@@ -21,7 +21,8 @@ class MusicSearchInteractorTests: XCTestCase {
 
   func setupMusicSearchInteractor() {
       let musicService = MusicService(apiClient: SearchClientAPIMock())
-      sut = MusicSearchInteractor(movieService: musicService)
+      let presenter = MusicSearchPresenter()
+      sut = MusicSearchInteractor(movieService: musicService, presenter: presenter)
   }
 
   func testSeach() {

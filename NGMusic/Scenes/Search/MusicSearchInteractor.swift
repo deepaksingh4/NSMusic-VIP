@@ -16,13 +16,14 @@ protocol MusicSearchDataStore {
 }
 
 class MusicSearchInteractor: MusicSearchBusinessLogic, MusicSearchDataStore {
-    var presenter: MusicSearchPresentationLogic?
+    let presenter: MusicSearchPresentationLogic
     var musicService: MusicServiceProtocol?
     var searchResult: [[MusicResponseModel]] = []
     var resultTypes: [String] = []
 
-    init(movieService: MusicServiceProtocol = MusicService.init()) {
+    init(movieService: MusicServiceProtocol = MusicService.init(), presenter: MusicSearchPresentationLogic) {
         self.musicService = movieService
+        self.presenter = presenter
     }
 
     func fetchMusic(queryString: String?, entity: Set<String>) {
@@ -55,15 +56,15 @@ class MusicSearchInteractor: MusicSearchBusinessLogic, MusicSearchDataStore {
 
             group.notify(queue: DispatchQueue.main) {
                 self.searchResult.isEmpty
-                ? self.presenter?.showError(message: Constants.SearchScreen.somethingWrong)
-                : self.presenter?.showResult(musics: self.searchResult, types: self.resultTypes)
+                ? self.presenter.showError(message: Constants.SearchScreen.somethingWrong)
+                : self.presenter.showResult(musics: self.searchResult, types: self.resultTypes)
             }
         } else {
-            self.presenter?.showError(message: valid.1)
+            presenter.showError(message: valid.1)
         }
     }
 
-    func isSearchQueryValid(queryString: String?, entity: Set<String>) -> (Bool, String) {
+   private func isSearchQueryValid(queryString: String?, entity: Set<String>) -> (Bool, String) {
         guard let query = queryString else {
             return (false, Constants.SearchScreen.inValidSearchKey)
         }

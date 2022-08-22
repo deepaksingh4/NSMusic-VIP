@@ -31,12 +31,11 @@ class MusicSearchViewController: UIViewController, MusicSearchDisplayLogic {
 
     private func setup() {
         let viewController = self
-        let interactor = MusicSearchInteractor()
         let presenter = MusicSearchPresenter()
+        let interactor = MusicSearchInteractor(presenter: presenter)
         let router = MusicSearchRouter()
         viewController.interactor = interactor
         viewController.router = router
-        interactor.presenter = presenter
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
